@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trionix Tickets</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-in">
+      <div class="marca">
+        <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M6 14a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v5a5 5 0 0 0 0 10v5a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4v-5a5 5 0 0 0 0-10z" fill="#fff"/>
+          <path d="M17 19h14M17 24h14M17 29h8" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h1>Trionix Tickets</h1>
+          <p>Registra los casos de soporte y asígnalos al agente indicado.</p>
+        </div>
+      </div>
+      <div class="stats" aria-label="Resumen de tickets">
+        <div class="stat"><b id="n-abiertos">0</b><span>Abiertos</span></div>
+        <div class="stat"><b id="n-resueltos">0</b><span>Resueltos</span></div>
+        <div class="stat alerta"><b id="n-alta">0</b><span>Alta prioridad</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mensaje" role="alert" hidden></div>
+
+  <main class="layout">
+    <section class="principal">
+
+      <div class="panel">
+        <div class="barra">
+          <h2>Tickets</h2>
+          <div class="filtros">
+            <select id="filtro-estado" aria-label="Filtrar por estado">
+              <option value="">Todos los estados</option>
+              <option value="abierto">Abiertos</option>
+              <option value="resuelto">Resueltos</option>
+            </select>
+            <select id="filtro-prioridad" aria-label="Filtrar por prioridad">
+              <option value="">Todas las prioridades</option>
+              <option value="alta">Alta</option>
+              <option value="media">Media</option>
+              <option value="baja">Baja</option>
+            </select>
+          </div>
+        </div>
+        <div id="tickets"></div>
+      </div>
+    </section>
+
+    <aside class="lateral">
+      <form id="form-ticket" class="panel" autocomplete="off">
+        <h2>Nuevo ticket</h2>
+        <div class="fila">
+          <label>Cliente
+            <input name="cliente" required minlength="2" maxlength="100" placeholder="Nombre del cliente">
+          </label>
+          <label>Prioridad
+            <select name="prioridad" required>
+              <option value="baja">Baja</option>
+              <option value="media" selected>Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </label>
+        </div>
+        <label>Asunto
+          <input name="asunto" required minlength="5" maxlength="200" placeholder="Describe el problema en una frase">
+        </label>
+        <button type="submit" class="primario">Crear ticket</button>
+      </form>
+
+      <form id="form-agente" class="panel" autocomplete="off">
+        <h2>Nuevo agente</h2>
+        <label>Nombre
+          <input name="nombre" required minlength="3" maxlength="100">
+        </label>
+        <label>Correo
+          <input name="email" type="email" required>
+        </label>
+        <label>Especialidad
+          <select name="especialidad" required>
+            <option value="general">General</option>
+            <option value="redes">Redes</option>
+            <option value="software">Software</option>
+            <option value="hardware">Hardware</option>
+          </select>
+        </label>
+        <button type="submit" class="primario">Crear agente</button>
+      </form>
+
+      <div class="panel">
+        <h2>Agentes</h2>
+        <ul id="agentes" class="lista-agentes"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

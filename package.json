@@ -1,0 +1,19 @@
+{
+  "name": "trionix-tickets-agentes",
+  "version": "1.0.0",
+  "description": "Sistema de soporte con tickets y agentes (Express + Joi + MongoDB/Mongoose)",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "seed": "node seed.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "joi": "^18.2.9",
+    "mongoose": "^9.11.2"
+  }
+}
