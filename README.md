@@ -8,9 +8,10 @@ cp .env.example .env      # y edita MONGODB_URI
 npm run seed              # opcional: carga datos de prueba (borra los datos existentes)
 npm start                 # http://localhost:3000
 
+## URL
+https://trionix-agentes.onrender.com
 
 ## Variables de entorno
-
                                        
  PORT        Puerto del servidor (por defecto 3000)                  
  MONGODB_URI  Cadena de conexión de MongoDB (local o Atlas)           
